@@ -59,7 +59,16 @@ public class MainActivity extends AppCompatActivity {
                                 int temp_min = jsonObject.getInt("temp_min");
                                 int temp_max = jsonObject.getInt("temp_max");
 
-                                mTextView.append(temp + ", " + temp_min + ", " + temp_max + "\n\n");
+                                double tempF = (temp - 273.15) * 9/5 + 32;
+                                double temp_minF = (temp_min - 273.15) * 9/5 + 32;
+                                double temp_maxF = (temp_max - 273.15) * 9/5 + 32;
+
+                                int tempF2 = (int) tempF;
+                                int temp_minF2 = (int) temp_minF;
+                                int temp_maxF2 = (int) temp_maxF;
+
+
+                                mTextView.append(tempF2 + ", " + temp_minF2 + ", " + temp_maxF2 + "\n\n");
                             }
 
                         } catch (JSONException e) {
